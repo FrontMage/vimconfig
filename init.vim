@@ -37,6 +37,7 @@ Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 Plug 'ncm2/ncm2-vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'liuchengxu/vim-which-key'
 call plug#end()
 
 " General settings
@@ -184,6 +185,9 @@ noremap <leader>yd :<C-u>Yde<CR>
 " Tagbar config
 nmap <F8> :TagbarToggle<CR>
 
+command BuildWasm execute "!cargo web build --release --target=wasm32-unknown-unknown"
+command CargoRun execute "!cargo run"
+
 let g:tagbar_type_rust = {
       \ 'ctagstype' : 'rust',
       \ 'kinds' : [
@@ -227,4 +231,8 @@ let g:tagbar_type_go = {
         \'c:const'
     \]
     \}
+
+" vim which key config
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set timeoutlen=500
 
