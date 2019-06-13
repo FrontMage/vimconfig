@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'SirVer/ultisnips'
 Plug 'fatih/vim-go'
-Plug 'dracula/vim'
+" Plug 'dracula/vim'
+Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
@@ -24,7 +24,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-cssomni'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'ncm2/ncm2-racer'
 Plug 'ncm2/ncm2-go'
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
@@ -33,17 +33,30 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-Plug 'ncm2/ncm2-vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'liuchengxu/vim-which-key'
+" Plug 'NLKNguyen/papercolor-theme'
+Plug 'nightsense/rusticated'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-html-subscope'
+Plug 'fgrsnau/ncm2-aspell'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'mhinz/vim-grepper'
+Plug 'gluon-lang/vim-gluon'
+Plug 'tpope/vim-speeddating'
+Plug 'rhysd/git-messenger.vim'
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 " General settings
 set number relativenumber
 set hlsearch
 syntax on
-color dracula
+" color dracula
+" set background=light
+" colorscheme PaperColor
+colorscheme rusticated
 set noswapfile
 set ts=2 sts=2 sw=2 expandtab
 
@@ -116,10 +129,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
   \ 'rust': ['rls'],
-  \ 'javascript': ['typescript-language-server', '--stdio'],
-  \ 'javascript.jsx': ['typescript-language-server', '--stdio'],
-  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'javascript': ['tsserver'],
+  \ 'javascript.jsx': ['tsserver'],
+  \ 'typescript': ['tsserver'],
   \ 'sh': ['bash-language-server', 'start'],
+  \ 'gluon': ['gluon_language-server'],
   \ }
 let g:LanguageClient_selectionUI = "fzf"
 
@@ -155,6 +169,8 @@ nnoremap <leader>wl :wincmd l<CR>
 
 " terminal config
 nnoremap <leader>' :terminal<CR>
+" run python file
+nnoremap <leader>pr :!python3 main.py<CR>
 
 " neoformat config
 augroup fmt
@@ -184,8 +200,12 @@ noremap <leader>yd :<C-u>Yde<CR>
 " Tagbar config
 nmap <F8> :TagbarToggle<CR>
 
+" Grep config
+nnoremap <leader>g :GrepperRg 
+
 command BuildWasm execute "!cargo web build --release --target=wasm32-unknown-unknown"
 command CargoRun execute "!cargo run"
+command W execute ":w suda://%"
 
 let g:tagbar_type_rust = {
       \ 'ctagstype' : 'rust',
@@ -233,5 +253,5 @@ let g:tagbar_type_go = {
 
 " vim which key config
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <leader>gm :GitMessenger<CR>
 set timeoutlen=500
-
