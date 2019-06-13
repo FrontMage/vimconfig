@@ -1,0 +1,10 @@
+{
+  "tsserver.npm": "/usr/bin/npm",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "Markdown",
+    "javascript",
+    "typescript",
+    "json"
+  ]
+}
