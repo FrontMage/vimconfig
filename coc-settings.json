@@ -1,10 +1,17 @@
 {
   "tsserver.npm": "/usr/bin/npm",
+  "suggest.enablePreview": true,
+  "suggest.echodocSupport": true,
+  "diagnostic.checkCurrentLine": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "Markdown",
     "javascript",
     "typescript",
-    "json"
+    "json",
+    "typescriptreact",
+    "scss",
+    "go",
+    "rust"
   ]
 }

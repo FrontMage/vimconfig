@@ -17,20 +17,23 @@ Plug 'ap/vim-css-color'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'liuchengxu/vim-which-key'
-" Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-grepper'
 Plug 'nightsense/rusticated'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'ryanoasis/vim-devicons'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " General settings
 set number relativenumber
 set hlsearch
 syntax on
-color dracula
-" set background=light
-" colorscheme PaperColor
+" color dracula
+set background=light
+colorscheme PaperColor
 " colorscheme rusticated
 set noswapfile
 set ts=2 sts=2 sw=2 expandtab
@@ -115,9 +118,9 @@ nmap <F8> :TagbarToggle<CR>
 " Grep config
 nnoremap <leader>g :GrepperRg 
 
-command BuildWasm execute "!cargo web build --release --target=wasm32-unknown-unknown"
-command CargoRun execute "!cargo run"
-command W execute ":w suda://%"
+command! BuildWasm execute "!cargo web build --release --target=wasm32-unknown-unknown"
+command! CargoRun execute "!cargo run"
+command! W execute ":w suda://%"
 
 let g:tagbar_type_rust = {
       \ 'ctagstype' : 'rust',
@@ -258,6 +261,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+" Use `:Prettier` to format current buffer
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -281,7 +286,7 @@ let g:lightline = {
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>le  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
