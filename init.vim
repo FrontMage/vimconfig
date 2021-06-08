@@ -25,6 +25,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'ryanoasis/vim-devicons'
 Plug 'arcticicestudio/nord-vim'
+Plug 'mbbill/undotree'
 call plug#end()
 
 " General settings
@@ -301,3 +302,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" undotree
+nnoremap <silent> <space>u  :UndotreeToggle<CR>
+

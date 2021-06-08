@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/xinbg/.config/nvim'
-let g:netrw_dirhist_2='/home/xinbg/Documents/dvw-apis'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/xinbg/Documents/sirens/teles'
+let g:netrw_dirhist_2='/home/xinbg/Documents/watermark-demo/src-tauri'
+let g:netrw_dirhist_1='/home/xinbg/Documents/e_dblind'
+let g:netrw_dirhist_0='/home/xinbg/Documents/bluetooth_py'
+let g:netrw_dirhist_9='/home/xinbg/Documents/sirens/core/src'
+let g:netrw_dirhist_8='/home/xinbg/Documents/sirens/core/examples'
+let g:netrw_dirhist_7='/home/xinbg/Documents/sirens/core'
+let g:netrw_dirhist_6='/home/xinbg/Documents/omphalia'
+let g:netrw_dirhist_5='/home/xinbg/Documents/omphalia_recv'
+let g:netrw_dirhist_4='/home/xinbg/Documents/c18_proto'

@@ -1,10 +1,12 @@
 {
+  "python.formatting.provider": "black",
   "tsserver.npm": "/usr/bin/npm",
   "suggest.enablePreview": true,
   "suggest.echodocSupport": true,
   "diagnostic.checkCurrentLine": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "python",
     "Markdown",
     "javascript",
     "typescript",
